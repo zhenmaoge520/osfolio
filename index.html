@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="mac" data-wall="aurora">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="OSfolio — 模拟操作系统桌面的个人主页 / 静态博客模板。纯静态、零依赖、中英双语，5 套主题可切换，内置可交互终端。" />
+  <title>OSfolio · 桌面系统风格个人主页模板</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖥️</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+</head>
+<body>
+
+  <!-- ============ 开机动画 ============ -->
+  <div id="boot" class="boot">
+    <div class="boot-inner">
+      <div class="boot-logo">🖥️</div>
+      <div class="boot-name">OSFOLIO</div>
+      <div class="boot-bar"><div class="boot-fill"></div></div>
+      <div class="boot-tip">Starting up<span class="dots">...</span></div>
+    </div>
+  </div>
+
+  <!-- ============ 桌面 ============ -->
+  <main id="desktop" class="desktop">
+
+    <!-- 顶部菜单栏（macOS / 终端 / 赛博 / 像素） -->
+    <header class="menubar">
+      <div class="menu-left">
+        <span class="menu-logo">🍎</span>
+        <span class="menu-item" id="menu-finder">Finder</span>
+        <span class="menu-item" id="menu-file">文件</span>
+        <span class="menu-item" id="menu-view">视图</span>
+        <span class="menu-item" id="menu-help">帮助</span>
+      </div>
+      <div class="menu-right">
+        <button class="menu-btn" id="lang-btn" title="切换语言 / Switch language">🌐 中文</button>
+        <button class="menu-btn" id="theme-btn" title="切换主题 / Switch theme">🎨 主题</button>
+        <span class="clock" id="clock">--:--</span>
+      </div>
+    </header>
+
+    <!-- 桌面图标 -->
+    <div class="icons" id="desktop-icons"></div>
+
+    <!-- 窗口容器 -->
+    <div class="windows" id="windows"></div>
+
+    <!-- 底部 Dock（macOS） -->
+    <nav class="dock" id="dock">
+      <div class="start-btn" id="start-btn">⊞ 开始</div>
+      <div class="dock-apps" id="dock-apps"></div>
+      <div class="tray">
+        <span id="tray-clock">--:--</span>
+      </div>
+    </nav>
+
+    <!-- 主题 / 语言 弹出面板 -->
+    <div class="popover hidden" id="popover">
+      <div class="popover-title" id="popover-title">主题</div>
+      <div class="popover-body" id="popover-body"></div>
+    </div>
+  </main>
+
+  <!-- 窗口模板（JS 复制此结构） -->
+  <template id="win-template">
+    <section class="window">
+      <div class="titlebar">
+        <div class="win-btns">
+          <span class="btn close"></span><span class="btn mini"></span><span class="btn max"></span>
+        </div>
+        <div class="win-title"></div>
+        <div class="win-actions">
+          <span class="btn-close">✕</span>
+        </div>
+      </div>
+      <div class="win-body"></div>
+    </section>
+  </template>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
